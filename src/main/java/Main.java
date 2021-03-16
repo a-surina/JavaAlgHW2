@@ -60,6 +60,7 @@ public class Main {
         int[] arrayToSortCopy1 = Arrays.copyOf(arrayToSort, arrayToSort.length);
         int[] arrayToSortCopy2 = Arrays.copyOf(arrayToSort, arrayToSort.length);
         int[] arrayToSortCopy3 = Arrays.copyOf(arrayToSort, arrayToSort.length);
+        int[] arrayToSortCopy4 = Arrays.copyOf(arrayToSort, arrayToSort.length);
 
         long startTimeSort= System.nanoTime();
         Arrays.sort(arrayToSort);
@@ -71,25 +72,34 @@ public class Main {
         SortManager sorter = new SortManager();
         System.out.println("2.4.1. Unsorted array copy1: " + Arrays.toString(arrayToSortCopy1));
         long startTimeSortBubble= System.nanoTime();
-        sorter.bubbleSort(arrayToSortCopy1);
+        int[] arrayToSortCopy1Sorted = sorter.bubbleSort(arrayToSortCopy1);
         double elapsedNanosSortBubble = (double) (System.nanoTime() - startTimeSortBubble)/1000000;
-        System.out.println("2.4.2. Array sorted by bubble sort: " + Arrays.toString(arrayToSortCopy1));
+        System.out.println("2.4.2. Array sorted by bubble sort: " + Arrays.toString(arrayToSortCopy1Sorted));
         System.out.println("\tTime elapsed: " + String.valueOf(elapsedNanosSortBubble) + " milliseconds\n");
+
+        //*Cортировка пузырьком улучшенная (шейкерная)
+        System.out.println("*Unsorted array copy1: " + Arrays.toString(arrayToSortCopy4));
+        long startTimeSortBubble2= System.nanoTime();
+        int[] arrayToSortCopy4Sorted = sorter.bubbleSort(arrayToSortCopy4);
+        double elapsedNanosSortBubble2 = (double) (System.nanoTime() - startTimeSortBubble2)/1000000;
+        System.out.println("*Array sorted by upgraded bubble sort: " + Arrays.toString(arrayToSortCopy4Sorted));
+        System.out.println("\tTime elapsed: " + String.valueOf(elapsedNanosSortBubble2) + " milliseconds\n");
+
 
         //Задание 2.5: сортировка методом выбора (сортировка реализована в классе SortManager)
         System.out.println("2.5.1. Unsorted array copy2: " + Arrays.toString(arrayToSortCopy2));
         long startTimeSortSelection= System.nanoTime();
-        sorter.selectionSort(arrayToSortCopy2);
+        int[] arrayToSortCopy2Sorted = sorter.selectionSort(arrayToSortCopy2);
         double elapsedNanosSortSelection = (double) (System.nanoTime() - startTimeSortSelection)/1000000;
-        System.out.println("2.5.2. Array sorted by selection sort': " + Arrays.toString(arrayToSortCopy2));
+        System.out.println("2.5.2. Array sorted by selection sort: " + Arrays.toString(arrayToSortCopy2Sorted));
         System.out.println("\tTime elapsed: " + String.valueOf(elapsedNanosSortSelection) + " milliseconds\n");
 
         //Задание 2.6: сортировка методом вставки (сортировка реализована в классе SortManager)
         System.out.println("2.6.1. Unsorted array copy3: " + Arrays.toString(arrayToSortCopy3));
         long startTimeSortInsertion= System.nanoTime();
-        sorter.insertionSort(arrayToSortCopy2);
+        int[] arrayToSortCopy3Sorted = sorter.insertionSort(arrayToSortCopy3);
         double elapsedNanosSortInsertion = (double) (System.nanoTime() - startTimeSortInsertion)/1000000;
-        System.out.println("2.6.2. Array sorted by insertion sort" + Arrays.toString(arrayToSortCopy3));
+        System.out.println("2.6.2. Array sorted by insertion sort: " + Arrays.toString(arrayToSortCopy3Sorted));
         System.out.println("\tTime elapsed: " + String.valueOf(elapsedNanosSortInsertion) + " milliseconds\n");
     }
 }
